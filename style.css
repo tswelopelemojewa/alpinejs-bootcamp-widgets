@@ -1,0 +1,19 @@
+span{
+    font-size: 23px;
+}
+
+.title-div{
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+body{
+    background-image: url("images/111.webp");
+    background-size: cover;
+}
+
+main{
+    background-color: rgba(0, 0, 0, 0.4);
+}

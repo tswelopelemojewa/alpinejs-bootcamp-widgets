@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine bootcamp widgets</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <main>
+        <div class="container text-center">
+            <br>
+            <div class="title-div row d-flex justify-content-center ">
+                <hr>
+                <br>
+                <h1 class="">BOOTCAMP WIDGETS</h1>
+                <br>
+                <hr>
+            </div><br>
+
+
+            <div class="row g-2 justify-content-center">
+                <div class="text-center col-md-5" x-data="{shift: ''}" x-init="transportFee(shift)">
+
+                    <div class="card">
+                        <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+
+                            <div class="card-img-overlay" style="background-color: rgba(10, 10, 10, 0.4);">
+                                <h3 class="card-title">TRANSPORT FEE</h3>
+                                <br>
+                                <div>
+
+                                    <h1 x-text="transportFee(shift)"></h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <!-- <form> -->
+                            <input id="morning" type="radio" name="fee" class="form-check-input"
+                                @click="(shift = 'morning'), (console.log(shift))" />
+                            <label for="morning">Morning Shift</label>
+
+
+                            <input id="afternoon" type="radio" name="fee" class="form-check-input"
+                                @click="(shift = 'afternoon', (console.log(shift)))" />
+                            <label for="afternoon">Afternoon Shift</label>
+
+
+                            <input id="night" type="radio" name="fee" class="form-check-input" @click="(shift= '') " />
+                            <label for="night">night Shift</label>
+                            <br>
+
+                            <!-- </form> -->
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center col-md-5" x-data="{sentence: ''}"
+                    x-init="longestWord(sentence); shortestWord(sentence); wordLengths(sentence)">
+                    <div class="card">
+                        <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+
+                            <div class="card-img-overlay" style="background-color: rgba(10, 10, 10, 0.4);">
+                                <h3 class="card-title">WORD GAME</h3>
+
+
+                                <div>
+                                    <span>Longest word: </span>
+                                    <span x-text="longestWord(sentence)"></span><br>
+                                    <span>Shortest Word: </span>
+                                    <span x-text="shortestWord(sentence)"></span><br>
+                                    <span>Word length: </span>
+                                    <span x-text="wordLengths(sentence)"></span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card-body ">
+
+                            <!-- <form> -->
+                            <input class="form-control" type="text" x-model="sentence" placeholder="enter a sentence" />
+                            <!-- </form> -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="text-center col-md-5" x-data="{bill: ''}" x-init="totalPhoneBill(bill)">
+
+                    <div class="card">
+                        <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+
+                            <div class="card-img-overlay" style="background-color: rgba(10, 10, 10, 0.4);">
+                                <h3 class="card-title">TOTAL PHONE BILL</h3>
+                                <br>
+
+                                <h1 x-text="totalPhoneBill(bill)"></h1>
+
+                            </div>
+                        </div>
+
+                        <div class="card-body ">
+
+                            <!-- <form> -->
+                            <input class="form-control" x-model="billy" placeholder="enter call or sms" /><br>
+                            <button class="btn btn-success btn-block" @click="bill=billy">Done</button>
+
+                            <!-- </form> -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center col-md-5" x-data="{usage: '', airtime: 0}"
+                    x-init="enoughAirtime(usage, airtime)">
+                    <div class="card">
+                        <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+
+                            <div class="card-img-overlay" style="background-color: rgba(10, 10, 10, 0.4);">
+                                <h3 class="card-title">ENOUGH AIRTIME</h3>
+                                <br>
+
+                                <h1 x-text="enoughAirtime(usage, airtime)"></h1>
+
+                            </div>
+                        </div>
+
+                        <div class="card-body ">
+
+                            <!-- <form> -->
+                            <input class="form-control" type="text" x-model="usage" placeholder="enter usage" /><br>
+                            <input class="form-control" type="number" x-model="airtime" placeholder="enter usage" />
+                            <!-- </form> -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <br>
+    </main>
+
+    <script src="totalPhoneBill.js" defer></script>
+    <script src="transportFee.js" defer></script>
+    <script src="enough-airtime.js" defer></script>
+    <script src="word-game.js" defer></script>
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+
+</html>
