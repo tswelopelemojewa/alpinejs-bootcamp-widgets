@@ -30,13 +30,13 @@
 
 
             <div class="row g-2 justify-content-center">
-                <div class="text-center col-md-5" x-data="{shift: ''}" x-init="transportFee(shift)">
+                <div class="text-center col-md-5" x-data="{shift: ''}" x-init="transportFee(morning)">
 
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+                            <img src="images/198529.jpeg" class="img-fluid" />
 
-                            <div class="card-img-overlay" style="background-color: rgba(10, 10, 10, 0.4);">
+                            <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.8);">
                                 <h3 class="card-title">TRANSPORT FEE</h3>
                                 <br>
                                 <div>
@@ -73,9 +73,9 @@
                     x-init="longestWord(sentence); shortestWord(sentence); wordLengths(sentence)">
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+                            <img src="images/word-board-games.png" class="img-fluid" />
 
-                            <div class="card-img-overlay" style="background-color: rgba(10, 10, 10, 0.4);">
+                            <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.8);">
                                 <h3 class="card-title">WORD GAME</h3>
 
 
@@ -84,7 +84,7 @@
                                     <span x-text="longestWord(sentence)"></span><br>
                                     <span>Shortest Word: </span>
                                     <span x-text="shortestWord(sentence)"></span><br>
-                                    <span>Word length: </span>
+                                    <span>Letter count: </span>
                                     <span x-text="wordLengths(sentence)"></span>
                                 </div>
 
@@ -103,13 +103,13 @@
                 </div>
 
 
-                <div class="text-center col-md-5" x-data="{bill: ''}" x-init="totalPhoneBill(bill)">
+                <div class="text-center col-md-5" x-data="{bill: ''}" x-init="totalPhoneBill('bill')">
 
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+                            <img src="images/phone-bill-10519351.webp" class="img-fluid" />
 
-                            <div class="card-img-overlay" style="background-color: rgba(10, 10, 10, 0.4);">
+                            <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.8);">
                                 <h3 class="card-title">TOTAL PHONE BILL</h3>
                                 <br>
 
@@ -121,6 +121,7 @@
                         <div class="card-body ">
 
                             <!-- <form> -->
+                            <label>Enter usage</label>
                             <input class="form-control" x-model="billy" placeholder="enter call or sms" /><br>
                             <button class="btn btn-success btn-block" @click="bill=billy">Done</button>
 
@@ -131,13 +132,13 @@
 
                 </div>
 
-                <div class="text-center col-md-5" x-data="{usage: '', airtime: 0}"
+                <div class="text-center col-md-5" x-data="{usage: '', airtime:0}"
                     x-init="enoughAirtime(usage, airtime)">
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+                            <img src="images/phone-bill.jpg" class="img-fluid" />
 
-                            <div class="card-img-overlay" style="background-color: rgba(10, 10, 10, 0.4);">
+                            <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.8);">
                                 <h3 class="card-title">ENOUGH AIRTIME</h3>
                                 <br>
 
@@ -149,8 +150,10 @@
                         <div class="card-body ">
 
                             <!-- <form> -->
+                            <label>Enter usage</label>
                             <input class="form-control" type="text" x-model="usage" placeholder="enter usage" /><br>
-                            <input class="form-control" type="number" x-model="airtime" placeholder="enter usage" />
+                            <label>Enter Amount</label>
+                            <input class="form-control" type="number" x-model="airtime" placeholder="enter amount" />
                             <!-- </form> -->
 
                         </div>
