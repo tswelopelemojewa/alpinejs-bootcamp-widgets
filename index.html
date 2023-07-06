@@ -30,7 +30,7 @@
 
 
             <div class="row g-2 justify-content-center">
-                <div class="text-center col-md-5" x-data="{shift: ''}" x-init="transportFee(morning)">
+                <div class="text-center col-md-5" x-data="{shift: ''}">
 
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
@@ -50,16 +50,23 @@
 
                             <!-- <form> -->
                             <input id="morning" type="radio" name="fee" class="form-check-input"
-                                @click="(shift = 'morning'), (console.log(shift))" />
+                                @click="(shift = 'morning'),(setTimeout(() => {
+                                   shift='';
+                                   
+                                  }, 3000))" />
                             <label for="morning">Morning Shift</label>
 
 
                             <input id="afternoon" type="radio" name="fee" class="form-check-input"
-                                @click="(shift = 'afternoon', (console.log(shift)))" />
+                                @click="(shift = 'afternoon'),(setTimeout(() => {
+                                    shift='';
+                                   }, 3000))" />
                             <label for="afternoon">Afternoon Shift</label>
 
 
-                            <input id="night" type="radio" name="fee" class="form-check-input" @click="(shift= '') " />
+                            <input id="night" type="radio" name="fee" class="form-check-input" @click="(shift= 'night'), (setTimeout(() => {
+                                shift='';
+                               }, 3000))" />
                             <label for="night">night Shift</label>
                             <br>
 
@@ -69,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="text-center col-md-5" x-data="{sentence: ''}"
+                <div class="text-center col-md-5" x-data="{sentence: '', lol: ''}"
                     x-init="longestWord(sentence); shortestWord(sentence); wordLengths(sentence)">
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
@@ -94,7 +101,11 @@
                         <div class="card-body ">
 
                             <!-- <form> -->
-                            <input class="form-control" type="text" x-model="sentence" placeholder="enter a sentence" />
+                            <input class="form-control" type="text" x-model="lol" placeholder="enter a sentence" /><br>
+                            <button class="btn btn-success btn-block" @click="(sentence=lol), (setTimeout(() => {
+                                lol=' ';
+                                sentence= ' ';
+                              }, 3000))">Submit</button>
                             <!-- </form> -->
 
                         </div>
@@ -103,7 +114,7 @@
                 </div>
 
 
-                <div class="text-center col-md-5" x-data="{bill: ''}" x-init="totalPhoneBill('bill')">
+                <div class="text-center col-md-5" x-data="{bill: '', usage: ''}" x-init="totalPhoneBill('bill')">
 
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
@@ -122,8 +133,11 @@
 
                             <!-- <form> -->
                             <label>Enter usage</label>
-                            <input class="form-control" x-model="billy" placeholder="enter call or sms" /><br>
-                            <button class="btn btn-success btn-block" @click="bill=billy">Done</button>
+                            <input class="form-control" x-model="usage" placeholder="enter call or sms" /><br>
+                            <button class="btn btn-success btn-block" @click=" (setTimeout(() => {
+                                usage=' ';
+                                bill= ' ';
+                              }, 3000))">Done</button>
 
                             <!-- </form> -->
 
@@ -142,7 +156,7 @@
                                 <h3 class="card-title">ENOUGH AIRTIME</h3>
                                 <br>
 
-                                <h1 x-text="enoughAirtime(usage, airtime)"></h1>
+                                <h1 x-text="(enoughAirtime(usage, airtime))"></h1>
 
                             </div>
                         </div>
@@ -150,10 +164,14 @@
                         <div class="card-body ">
 
                             <!-- <form> -->
-                            <label>Enter usage</label>
+                            <!-- <label>Enter usage</label> -->
                             <input class="form-control" type="text" x-model="usage" placeholder="enter usage" /><br>
-                            <label>Enter Amount</label>
-                            <input class="form-control" type="number" x-model="airtime" placeholder="enter amount" />
+                            <!-- <label>Enter Amount</label> -->
+                            <input class="form-control" type="number" x-model="airtime" placeholder="enter amount..." /><br>
+                            <button class="btn btn-success btn-block" @click="(setTimeout(() => {
+                                usage='';
+                                airtime= '';
+                              }, 3000))">Submit</button>
                             <!-- </form> -->
 
                         </div>

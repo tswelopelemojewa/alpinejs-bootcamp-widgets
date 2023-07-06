@@ -3,8 +3,11 @@ function transportFee(shift){
       return "R20";
     }else if(shift === "afternoon") {
       return "R10"
-    }else{
-      return "free"
+    }else if(shift === "night") {
+      return "Free"
+    }
+    else{
+      return ""
     }
   }
   
