@@ -76,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="text-center col-md-5" x-data="{sentence: '', lol: ''}"
+                <div class="text-center col-md-5" x-data="{sentence: '', typedSentence: ''}"
                     x-init="longestWord(sentence); shortestWord(sentence); wordLengths(sentence)">
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
@@ -101,10 +101,10 @@
                         <div class="card-body ">
 
                             <!-- <form> -->
-                            <input class="form-control" type="text" x-model="lol" placeholder="enter a sentence" /><br>
-                            <button class="btn btn-success btn-block" @click="(sentence=lol), (setTimeout(() => {
-                                lol=' ';
-                                sentence= ' ';
+                            <input class="form-control" type="text" x-model="typedSentence" placeholder="enter a sentence" /><br>
+                            <button class="btn btn-success btn-block" @click="(sentence=typedSentence), (setTimeout(() => {
+                                typedSentence='';
+                                sentence= '';
                               }, 3000))">Submit</button>
                             <!-- </form> -->
 
@@ -114,7 +114,7 @@
                 </div>
 
 
-                <div class="text-center col-md-5" x-data="{bill: '', usage: ''}" x-init="totalPhoneBill('bill')">
+                <div class="text-center col-md-5" x-data="{bill: '', usage: ''}" x-init="totalPhoneBill(bill)">
 
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
@@ -134,9 +134,9 @@
                             <!-- <form> -->
                             <label>Enter usage</label>
                             <input class="form-control" x-model="usage" placeholder="enter call or sms" /><br>
-                            <button class="btn btn-success btn-block" @click=" (setTimeout(() => {
-                                usage=' ';
-                                bill= ' ';
+                            <button class="btn btn-success btn-block" @click="(bill=usage), (setTimeout(() => {
+                                usage='';
+                                bill= '';
                               }, 3000))">Done</button>
 
                             <!-- </form> -->
@@ -146,7 +146,7 @@
 
                 </div>
 
-                <div class="text-center col-md-5" x-data="{usage: '', airtime:0}"
+                <div class="text-center col-md-5" x-data="{usage: '', airtime:0, usageEntry:'', amountEntered:0}"
                     x-init="enoughAirtime(usage, airtime)">
                     <div class="card">
                         <div class="bg-image bg-dark text-white hover-overlay ripple" data-mdb-ripple-color="light">
@@ -165,12 +165,14 @@
 
                             <!-- <form> -->
                             <!-- <label>Enter usage</label> -->
-                            <input class="form-control" type="text" x-model="usage" placeholder="enter usage" /><br>
+                            <input class="form-control" type="text" x-model="usageEntry" placeholder="enter usage" /><br>
                             <!-- <label>Enter Amount</label> -->
-                            <input class="form-control" type="number" x-model="airtime" placeholder="enter amount..." /><br>
-                            <button class="btn btn-success btn-block" @click="(setTimeout(() => {
+                            <input class="form-control" type="number" x-model="amountEntered" placeholder="enter amount..." /><br>
+                            <button class="btn btn-success btn-block" @click="(usage=usageEntry),(airtime=amountEntered)(setTimeout(() => {
                                 usage='';
-                                airtime= '';
+                                airtime= 0;
+                                usageEntry='';
+                                amountEntered= 0;
                               }, 3000))">Submit</button>
                             <!-- </form> -->
 
